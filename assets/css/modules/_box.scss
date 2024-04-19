@@ -1,0 +1,260 @@
+// ===== BOX
+
+.boxThumbServicios {
+  width: 100%; height: 60px; margin: 0; padding: 0; position: relative; border-bottom: none; @include box-sizing(border-box); background-color: transparent; overflow: hidden; cursor: pointer; @include transition(background-color 0.45s ease);
+  &__icono {
+    width: 100%; height: 100%; padding: 0; margin: 0; @include position(absolute, 0 null null 0); @include displayFlex(flex, column, center, center, wrap); @include transform(translateY(0)); @include transition(transform 300ms ease-in-out 0.25s, opacity 250ms ease-in-out 0.15s); opacity: 1;
+    &--circle {
+      width: 45px; height: 45px; margin: 0; padding: 0; border: 1px solid $col9; @include box-sizing(border-box); border-radius: 50%; overflow: hidden; position: relative;
+      & img {
+        width: 30px; height: auto; padding: 0; margin: 0; display: block; @include position(absolute, 50% null null 50%); border: none; @include transform(translate(-50%, -50%));
+      }
+    }
+  }
+  &__titulo {
+    display: none;
+  }
+  @media all and (min-width: 640px) {
+    height: 100px;
+    &__icono {
+      &--circle {
+        width: 65px; height: 65px; border: 1px solid $col9;
+        & img {
+          width: 40px;
+        }
+      }
+    }
+  }
+  @media all and (min-width: 768px) {
+    border-bottom: 0.5px solid $col8; height: 120px; 
+    &__icono {
+      @include transition(transform 300ms ease-in-out 0.25s, opacity 250ms ease-in-out 0.15s); opacity: 1;
+    }
+    &__titulo {
+      width: 100%; height: 100%; padding: 0; margin: 0; @include position(absolute, 0 null null 0); @include displayFlex(flex, column, center, center, wrap); @include transform(translateY(100%)); opacity: 0; @include transition(transform 300ms ease-in-out 0.30s, opacity 300ms ease-in-out 0.20s);
+      & h4 {
+        color: $white; margin: 0; padding: 0; text-align: center; @include fluid-type(14px, 16px, 768px, 1200px);
+      }
+    }
+    &:before {
+      content: ''; width: 100%; height: 10px; background-color: $col1; @include position(absolute, 0 null null 0);
+    }
+    &:hover {
+      background-color: $col5; border-bottom: 0.5px solid $col5;
+      & .boxThumbServicios__icono {
+        @include transform(translateY(-100%)); opacity: 0;
+      }
+      & .boxThumbServicios__titulo {
+        @include transform(translateY(0%)); opacity: 1;
+      }
+    }
+    &[data-numbre-box="0"] {
+      & .boxThumbServicios__icono {
+        &--circle {
+          border: 1px solid $col1;
+        }
+      }
+      &:before {
+        background-color: $col1;
+      }
+      &:hover {
+        background-color: $col1; border-bottom: 0.5px solid $col1;
+      }
+    }
+    &[data-numbre-box="1"] {
+      & .boxThumbServicios__icono {
+        &--circle {
+          border: 1px solid $col5;
+        }
+      }
+      &:before {
+        background-color: $col5;
+      }
+      &:hover {
+        background-color: $col5; border-bottom: 0.5px solid $col5;
+      }
+    }
+    &[data-numbre-box="2"] {
+      & .boxThumbServicios__icono {
+        &--circle {
+          border: 1px solid $col9;
+        }
+      }
+      &:before {
+        background-color: $col9;
+      }
+      &:hover {
+        background-color: $col9; border-bottom: 0.5px solid $col9;
+      }
+    }
+    &[data-numbre-box="3"] {
+      & .boxThumbServicios__icono {
+        &--circle {
+          border: 1px solid $col10;
+        }
+      }
+      &:before {
+        background-color: $col10;
+      }
+      &:hover {
+        background-color: $col10; border-bottom: 0.5px solid $col10;
+      }
+    }
+    &[data-numbre-box="4"] {
+      & .boxThumbServicios__icono {
+        &--circle {
+          border: 1px solid $col8;
+        }
+      }
+      &:before {
+        background-color: $col8;
+      }
+      &:hover {
+        background-color: $col8; border-bottom: 0.5px solid $col8;
+      }
+    }    
+  }
+}
+
+// Box Slider Servicios Home
+.boxServiciosHome {
+  width: 100%; height: auto; margin: 0; padding: 0; position: relative; @include box-sizing(border-box); @include displayFlex(flex, row, center, center, wrap);
+  &__image {
+    @include flex(0 0 100%); max-width: 100%; position: relative; width: 100%; min-height: 1px; @include box-sizing(border-box); margin: 0; padding: 0 20px;
+    @include transform(translateX(-20%)); opacity: 0; @include filter(blur(20px));
+    @include transition(opacity 1.5s ease 0.55s, transform 0.5s ease-out 0.45s, filter 0.5s ease 0.45s);
+    & img {
+      width: 100%; max-width: 200px; margin: 0 auto 20px; padding: 0; display: block; border: 0;
+    }
+  }
+  &__desc {
+    @include flex(0 0 100%); max-width: 100%; position: relative; width: 100%; min-height: 1px; @include box-sizing(border-box); margin: 0; padding: 0;
+    @include transform(translateX(20%)); opacity: 0; @include filter(blur(20px));
+    @include transition(opacity 1.5s ease 0.35s, transform 0.5s ease-out 0.25s, filter 0.5s ease 0.25s);
+    ul, ol {
+      list-style-type: none; padding: 0 0 0 24px; margin: 0 0 20px; @include box-sizing(border-box);
+      & li {
+        list-style-type: none; position: relative; margin: 0 0 3px;
+        &:before {
+          content: ''; @include position(absolute, 50% null null -15px); width: 6px; height: 6px; background-color: $col5; border-radius: 50%; @include transform(translateY(-50%));
+        }
+      }
+    }
+    & .btnServicios {
+      text-align: center;
+      & a {
+        margin: 0;
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+  // @media all and (min-width: 640px) {
+  //   &__image {
+  //     @include flex(0 0 50%); max-width: 50%;
+  //   }
+  //   &__desc {
+  //     @include flex(0 0 50%); max-width: 50%;
+  //   }
+  // }
+  @media all and (min-width: 768px) {
+    &__image {
+      @include flex(0 0 41.666667%); max-width: 41.666667%;
+      & img {
+        max-width: 270px; margin: 0 auto 0;
+      }
+    }
+    &__desc {
+      @include flex(0 0 58.333333%); max-width: 58.333333%;
+      & .btnServicios {
+        text-align: left;
+        & a {
+          margin: 0 10px 0 0;
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  @media all and (min-width: 1024px) {
+    &__image {
+      @include flex(0 0 33.333333%); max-width: 33.333333%; padding: 0 30px;
+    }
+    &__desc {
+      @include flex(0 0 66.666667%); max-width: 66.666667%;
+      & .btnServicios {
+        text-align: left;
+        & a {
+          margin: 0 20px 0 0;
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  .slick-current & {
+    &__image {
+      @include transform(translateX(0)); opacity: 1; @include filter(blur(0));
+    }
+    &__desc {
+      @include transform(translateX(0)); opacity: 1; @include filter(blur(0));
+    }
+  }
+}
+
+.boxRowNews {
+  width: 100%; height: auto; padding: 0; margin: 0; @include displayFlex(flex, column, flex-start, center, wrap);
+  &__input {
+    &--left {
+      @include flex(1 1 auto); margin: 0 0 10px; padding: 0; width: 100%;
+    }
+    &--right {
+      @include flex(1 1 auto); padding: 0; text-align: center; width: 100%;
+    }
+  }
+  @media all and (min-width: 576px) {
+    @include flex-direction(row);
+    &__input {
+      &--left {
+        @include flex(1 1 auto); width: auto; margin: 0;
+      }
+      &--right {
+        @include flex(0 1 auto); width: auto; margin: 0; text-align: inherit;
+      }
+    }
+  }
+}
+
+.boxDescContact {
+  width: 100%; height: auto; padding: 0; margin: 0; @include displayFlex(flex, column, flex-start, center, wrap);
+  &__items {
+    margin: 0 0 30px; padding: 0 0 30px; border-bottom: 1px solid $col7; @include box-sizing(border-box); width: 100%; height: auto;
+    &:last-child {
+      padding: 0; margin: 0; border-bottom: 0;
+    }
+  }
+}
+.boxContactInfo {
+  width: 100%; height: auto; padding: 0; margin: 0; @include displayFlex(flex, row, flex-start, flex-start, wrap);
+  &__circle {
+    width: 40px; height: 40px; margin: 0 20px 0 0; padding: 0; background-color: $c12; border: 1px solid $col8; color: $col1; line-height: 40px; text-align: center; font-size: rem(22px); border-radius: 50%;
+  }
+  &__text {
+    padding: 10px 0 0; margin: 0; position: relative; @include box-sizing(border-box);
+    & h4 {
+      color: $col7; margin: 0 0 15px; padding: 0; text-transform: uppercase; @include fluid-type(13px, 16px, 320px, 1200px); font-weight: 500;
+    }
+    & p {
+      color: $col12; margin: 0; padding: 0; @include fluid-type(13px, 16px, 320px, 1200px); font-weight: 300;
+    }
+    & a {
+      color: $col5; text-decoration: none;
+      &:hover {
+        color: $col6;
+      }
+    }
+  }
+}

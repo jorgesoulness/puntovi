@@ -1,0 +1,130 @@
+/* ==|====================
+   Modules/Buttons
+   ======================= */
+
+// Botones efecto
+.btnFx {
+  height: 42px; display: inline-block; position: relative; overflow: hidden; font-size: rem(16px); text-decoration: none; border-radius: 0; -webkit-border-radius: 0; text-transform: uppercase; @include box-sizing(border-box); box-shadow: 0 3px 5px rgba($black, 0.20); text-align: center; line-height: 42px; padding: 0 30px; margin: 0 0 10px; @include transition(all 300ms); border: none; cursor: pointer; font-weight: 300;
+  &__generic {
+    width: auto; letter-spacing : 0.5px; word-wrap: break-word; color: $white;
+    span {
+      position: relative; z-index: 2; color: $white;
+    }
+    &:before {
+      content: ''; @include position(absolute, 0 null null 0); z-index: 1; width: 10px; height: 100%; opacity: 1; @include transition(opacity 200ms ease-in, width 300ms ease-in-out);
+    }
+    &--blue {
+      background: $col5;
+      &:before {
+        background: $col6;
+      }
+    }
+    &--green {
+      background: $col1;
+      &:before {
+        background: $col2;
+      }
+    }
+    &:hover {
+      color: $white!important;
+      &:before {
+        width: 100%; opacity: 0.35;
+      }
+    }
+    &.disabled, &[data-disabled] {
+      pointer-events: none!important; opacity: 0.55; cursor: none; background: $col4; color: $white!important;
+      &:before {
+        background: $col12;
+      }
+    }
+  }
+  @media all and (min-width: 768px) {
+    height: 52px; line-height: 52px; padding: 0 30px; margin: 0 0 20px; font-size: rem(18px);
+    &__generic {
+      letter-spacing : 0.9px;
+    }
+  }
+}
+
+// Botones S/Efecto
+.btnGen {
+  height: 42px; display: inline-flex; position: relative; overflow: hidden; color: $white; font-size: rem(16px); text-decoration: none; border-radius: 0; -webkit-border-radius: 0; text-transform: uppercase; @include box-sizing(border-box); box-shadow: 0 3px 5px rgba($black, 0.20); text-align: center; line-height: 42px; padding: 0 20px; margin: 0 0 10px; @include transition(all 300ms); border: none; cursor: pointer; font-weight: 300;
+  &__item {
+    width: auto; letter-spacing : 0.5px; word-wrap: break-word;
+    &--blue {
+      background: $col5; color: $white;
+      &:hover, &:focus {
+        background: $col6; color: $white!important;
+      }
+    }
+    &--green {
+      background: $col1; color: $white;
+      &:hover, &:focus {
+        background: $col2; color: $white!important;
+      }
+    }
+    &.disabled, &[data-disabled] {
+      pointer-events: none!important; opacity: 0.55; cursor: none; background: $col4; color: $white!important;
+      &:before {
+        background: $col12;
+      }
+    }
+  }
+  @media all and (min-width: 768px) {
+    height: 52px; line-height: 52px; padding: 0 30px; margin: 0 0 20px; font-size: rem(18px);
+    &__item {
+      letter-spacing : 0.9px;
+    }
+  }
+}
+
+.btnSlideProd {
+  width: 32px; height: 64px; @include position(absolute, 50% null null null); background-color: transparent; line-height: 64px; border: none; outline: 0; display: none!important; text-align: center; z-index: 10; font-size: rem(42px); padding: 0; margin: 0; cursor: pointer; color: $col1; @include transition(all 0.23s); border-radius: 0; @include transition(opacity 0.45s ease-in-out);
+  &:before, &:after {
+    font-family: 'LineIcons';
+  }
+  &:hover {
+    color: $col2; border: none; background-color: transparent;
+  }
+  &.bLeftP {
+    left: 7px; @include transform(translateY(-50%));
+    &:before {
+      content: '\ea5a';
+    }
+  }
+  &.nRightP {
+    right: 7px; @include transform(translateY(-50%));
+    &:after {
+      content: '\ea5c';
+    }
+  }
+  &.slick-disabled {
+    opacity: 0.45; cursor: none; pointer-events: none;
+  }
+  @media all and (min-width: 640px) {
+    display: block!important;
+    &.bLeftP {
+      left: 10px;
+    }
+    &.nRightP {
+      right: 10px;
+    }
+  }
+  @media all and (min-width: 768px) {
+    &.bLeftP {
+      left: 5px;
+    }
+    &.nRightP {
+      right: 5px;
+    }
+  }
+  @media all and (min-width: 1280px) {
+    &.bLeftP {
+      left: 20px;
+    }
+    &.nRightP {
+      right: 20px;
+    }
+  }
+}
+

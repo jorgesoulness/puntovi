@@ -1,0 +1,104 @@
+/* ==|====================
+   Layout/Footer
+   ======================= */
+
+.g-footer {
+  width: 100%; height: auto; @include position(fixed, null null 0 0); padding: 45px 0 40px 0; margin: 0; z-index: 4; background-color: $col4; border-top: 1px solid $col1; z-index: -1;
+  hr {
+    border-top: rgba($col8, 0.50) solid 1px; width: 100%; margin-top: 20px; margin-bottom: 20px;
+  }
+  &__desc {
+    width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box);
+    &--up {
+      & .btnFx {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  @media all and (min-width: 768px) {
+    padding: 65px 0 60px 0;
+    hr {
+      margin-top: 25px; margin-bottom: 25px;
+    }
+  }
+}
+.menuGenFooter {
+  width: 100%; height: auto; padding: 0; margin: 0;
+  .menu_footer {
+    width: 100%; height: auto; padding: 0; margin: 0; @include displayFlex(flex, column, center, center, wrap); list-style-type: none;
+    li {
+      list-style-type: none; color: $c11; font-size: rem(14px); margin: 0 0 8px; padding: 0; position: relative; font-weight: 500;
+      a {
+        text-decoration: none; color: $c11; text-decoration: none; @include transition(all 0.23s); font-weight: 500;
+        &:hover {
+          text-decoration: none; color: $white;
+        }
+      }
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+  .socFoo {
+    width: 100%; height: auto; padding: 0; margin: 0 0 0 0; @include displayFlex(flex, row, center, flex-start, wrap); list-style-type: none;
+    li {
+      list-style-type: none; margin: 0 14px 0 0;
+      a {
+        display: block; width: 32px; height: 32px; font-size: rem(16px); @include transition(all 0.23s ease); background-color: $white; @include border-top-radius(50%); @include border-bottom-radius(50%); line-height: 32px; text-align: center; position: relative; overflow: hidden; margin: 0;
+        &:before, &:after {
+          font-family: 'LineIcons'; @include position(absolute, 0 null null 0); width: 100%; height: 100%; color: $col5; @include transition(transform 300ms ease-in-out, all 0.25s);
+        }
+        &:before { @include transform(translateY(-100%)); }
+        &:after { @include transform(translateY(0)); }
+        //Clases
+        &.tyi-whatsapp { &:before, &:after { content: '\ebf1'; } }
+        &.tyi-facebook { &:before, &:after { content: '\eab2'; } }
+        &.tyi-twitter { &:before, &:after { content: '\ebd6'; } }
+        &.tyi-instagram { &:before, &:after { content: '\eaf2'; } }
+        &.tyi-linkedin { &:before, &:after { content: '\eb14'; } }
+        //Fin-Clases
+        &:hover {
+          background-color: $col5;
+          &:before, &:after { color: $white; }
+          &:before { @include transform(translateY(0)); }
+          &:after { @include transform(translateY(100%)); }
+        }
+      }
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+  @media all and (min-width: 640px) {
+    .menu_footer {
+      @include displayFlex(flex, row, center, center, wrap);
+      li {
+        margin: 0 16px 0 0;
+        &:after { 
+          content: ''; @include position(absolute, 50% -8px null null); width: 1px; height: 80%; border-left: 1px solid $c11; @include transform(translateY(-50%));
+        }
+        &:last-child {
+          margin: 0;
+          &:after { 
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+.copyFooter {
+  width: 100%; height: auto; padding: 0 0; margin: 0 0 15px;
+  p {
+    color: $c11; text-align: center; margin: 0; @include fluid-type(13px, 14px, 320px, 768px); font-weight: 300;
+    a {
+      color: $c11; font-weight: 500;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+  @media all and (min-width: 556px) {
+    margin: 0 0 20px;
+  }
+}

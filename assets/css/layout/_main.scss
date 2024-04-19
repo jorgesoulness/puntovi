@@ -1,0 +1,545 @@
+/* ==|====================
+   Layout/Main
+   ======================= */
+
+main {
+  width: 100%; height: auto; position: relative; padding: 0; margin: 0; z-index: 3;
+  &.PageContainer {
+    min-height: 100vh; @include display(flex); @include flex-direction(column); @include flex-wrap(wrap);
+  }
+}
+article {
+  width: 100%; height: auto; padding: 0; margin: 0; position: relative;
+}
+
+.titleGen {
+  height: auto; padding: 0 0 10px; margin: 0 0 15px; position: relative;
+  &.full {
+    width: 100%; display: block;
+    &:after {
+      width: 100%;
+    }
+  }
+  &.small {
+    width: auto; display: inline-block;
+    &:after {
+      width: calc(100% + 15px);
+    }
+  }
+  &.center {
+    text-align: center;
+    &:after {
+      left: 50%; @include transform(translateX(-50%));
+    }
+  }
+  &__head {
+    padding: 0; margin: 0; color: $col7; text-transform: uppercase;
+    &--left { text-align: left; }
+    &--center { text-align: center; }
+    &--right { text-align: right; }
+  }
+  &:after {
+    content: ''; height: 1px; border-bottom: 1px solid $col7; @include position(absolute, null null 0 0);
+  }
+}
+
+// Sections
+.hero-sec {
+  width: 100%; height: 400px; @include position(relative, null null null null); padding: 0; margin: 0; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; overflow: hidden;
+  & .contHero {
+    z-index: 4; @include position(absolute, 50% null null 0); @include transform(translate(0, -50%)); width: 100%; height: auto; padding: 0; margin: 0; @include box-sizing(border-box);
+    opacity: 1; @include transition(opacity 1.5s ease 0.55s, transform 0.5s ease-out 0.45s, filter 0.5s ease 0.45s);
+    & img.logoPunto {
+      display: block; width: 100%; max-width: 120px; margin: 0 auto; padding: 0; border: 0;
+    }
+    & hr {
+      border-top: 1.5px solid $white;
+    }
+    & .title-hero {
+      color: $white; @include fluid-type(23px, 40px, 320px, 1200px); margin: 0 0 15px; padding: 0; text-align: center; text-shadow: 0 2px 3px rgba($black, 0.15); text-transform: uppercase;
+    }
+    & .desc-hero {
+      width: 100%; height: auto; padding: 0; margin: 0 auto 20px 0; position: relative; @include box-sizing(border-box); color: $white; text-align: left; @include fluid-type(13px, 17px, 320px, 1200px); font-family: $hlight; text-align: center;
+      & p {
+        color: $white; margin: 0; padding: 0; font-weight: 300;
+      }
+    }
+    & .btn-hero {
+      width: 100%; height: auto; padding:0 ; margin: 0; position: relative; @include box-sizing(border-box); text-align: left;
+    }
+  }
+  & .overlayHero {
+    @extend .overlayClassAbs; z-index: 1; background-color: rgba($col5, 0.15);
+  }
+  & .header-title {
+    width: 100%; height: 100%; @include position(absolute, 0 0 null null); z-index: 2; background-color: $col5; @include transition(all 0.25s);
+  }
+  & .scrollNext {
+    z-index: 5; @include position(absolute, null null 10px 50%); @include transform(translateX(-50%)); z-index: 3; margin: 0; padding: 60px 0 0;
+    & span {
+      @include position(absolute, 0 null null 30%); width: 30px; height: 50px; margin-left: -15px; border: 1px solid $white; border-radius: 50px; @include box-sizing(border-box);
+      &:before {
+        @include position(absolute, 10px null null 50%); content: ''; width: 6px; height: 6px; margin-left: -3px; background-color: $white; border-radius: 100%; -webkit-animation: sdb10 2s infinite; animation: sdb10 2s infinite; @include box-sizing(border-box);
+      }
+    }
+  }
+  @media all and (min-width: 768px) {
+    height: 450px;
+    & .contHero {
+      & .desc-hero {
+        width: 70%;
+      }
+    }
+    & .scrollNext {
+      bottom: 60px;
+    }
+  }
+  @media all and (min-width: 1024px) {
+    height: 500px;
+    & .contHero {
+      & .desc-hero {
+        width: 50%;
+      }
+    }
+  }
+  @media all and (min-width: 1200px) {
+    height: 600px;
+  }
+  body.is-preload & {
+    > .contHero {
+      @include transform(translate(-0.5em, -50%)); @include filter(blur(0.125em));
+		}
+	}
+}
+
+// Utilidades
+.bannerInt {
+  width: 100%; height: 300px; @include position(relative, null null null null); padding: 0; margin: 0; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; overflow: hidden;
+  & hr {
+    border-top: 1.5px solid $white;
+  }
+  & .titleInt {
+    width: 100%; height: auto; padding: 0 0; margin: 0 0; @include position(absolute, 50% null null 0); @include transform(translate(0, -50%));
+    opacity: 1; @include transition(opacity 1.5s ease 0.55s, transform 0.5s ease-out 0.45s, filter 0.5s ease 0.45s); z-index: 2;
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0 0 10px 0; padding: 0; text-align: left; color: $white; text-transform: uppercase; @include fluid-type(23px, 40px, 320px, 1200px);
+    }
+    & .desc-hero-int {
+      width: 100%; height: auto; padding: 0; margin: 0 auto 20px 0; position: relative; @include box-sizing(border-box); color: $white; text-align: left; font-weight: 300; @include fluid-type(13px, 18px, 320px, 1200px);
+      & p {
+        color: $white; margin: 0; padding: 0; font-weight: 300;
+      }
+    }
+  }
+  & .overlayHeroInt {
+    @extend .overlayClassAbs; z-index: 1; background-color: rgba($col1, 0.15);
+  }
+  @media all and (min-width: 768px) {
+    height: 350px;
+    & .titleInt {
+      & .desc-hero-int {
+        width: 70%;
+      }
+    }
+  }
+  @media all and (min-width: 1024px) {
+    height: 410px;
+    & .titleInt {
+      & .desc-hero-int {
+        width: 50%;
+      }
+    }
+  }
+  body.is-preload & {
+    > .titleInt {
+      @include transform(translate(-0.5em, -50%)); @include filter(blur(0.125em));
+		}
+	}
+}
+
+
+// Provisional
+.elementsCont {
+  width: 100%; height: auto; padding: 50px 0; margin: 0; background-color: $white;
+}
+
+.gridServicios {
+  width: 100%; max-width: 1440px; height: auto; padding: 0 5px; margin: 20px auto 20px; position: relative; *zoom: 1; @include box-sizing(border-box); @include transform(translateY(-10px));
+  &__listado {
+    @include displayFlex(flex, row, center, center, wrap); padding: 0; position: relative; margin-left: -5px; margin-right: -5px;
+  }
+  &__colsList {
+    @include flex(0 0 20%); max-width: 20%; width: 100%; min-height: 1px; padding-right: 5px; padding-left: 5px;
+    & .slick-current {
+      & .boxThumbServicios__icono {
+        @include transform(translateY(0));
+        &--circle {
+          border: 1px solid $col1;
+        }
+      }
+    }
+  }
+  @media all and (min-width: 640px) {
+    margin: 0 auto 35px;
+  }
+  @media all and (min-width: 768px) {
+    margin: 0 auto 45px;
+    &__colsList {
+      & .slick-current {
+        & .boxThumbServicios__icono {
+          @include transform(translateY(-100%)); opacity: 0;
+        }
+        & .boxThumbServicios__titulo {
+          @include transform(translateY(0%)); opacity: 1;
+        }
+        &[data-numbre-box="0"] {
+          background-color: $col1; border-bottom: 0.5px solid $col1;
+          & .boxThumbServicios__icono {
+            &--circle {
+              border: 1px solid $col1;
+            }
+          }
+          &:before {
+            background-color: $col1;
+          }
+        }
+        &[data-numbre-box="1"] {
+          background-color: $col5; border-bottom: 0.5px solid $col5;
+          & .boxThumbServicios__icono {
+            &--circle {
+              border: 1px solid $col5;
+            }
+          }
+          &:before {
+            background-color: $col5;
+          }
+        }
+        &[data-numbre-box="2"] {
+          background-color: $col9; border-bottom: 0.5px solid $col9;
+          & .boxThumbServicios__icono {
+            &--circle {
+              border: 1px solid $col9;
+            }
+          }
+          &:before {
+            background-color: $col9;
+          }
+        }
+        &[data-numbre-box="3"] {
+          background-color: $col10; border-bottom: 0.5px solid $col10;
+          & .boxThumbServicios__icono {
+            &--circle {
+              border: 1px solid $col10;
+            }
+          }
+          &:before {
+            background-color: $col10;
+          }
+        }
+        &[data-numbre-box="4"] {
+          background-color: $col8; border-bottom: 0.5px solid $col8;
+          & .boxThumbServicios__icono {
+            &--circle {
+              border: 1px solid $col8;
+            }
+          }
+          &:before {
+            background-color: $col8;
+          }
+        }
+      }
+    }
+  }
+  @media all and (min-width: 1024px) {
+    margin: 0 auto 60px;
+  }
+}
+
+.slideServicios {
+  z-index: 2; position: relative; width: 100%; height: auto; padding: 0 0 30px; margin: 0; @include box-sizing(border-box); background-color: $white;
+  & .title-servicios {
+    padding: 0; margin: 0 0 30px; color: $col7; text-transform: uppercase; text-align: center; @include fluid-type(20px, 34px, 320px, 1200px);
+  }
+  @media all and (min-width: 768px) {
+    padding: 0 0 90px;
+    & .title-servicios {
+      margin: 0 0 45px;
+    }
+  }
+  @media all and (min-width: 1024px) {
+    padding: 0 0 135px;
+    & .title-servicios {
+      margin: 0 0 60px;
+    }
+  }
+}
+.contSlideServicios {
+  z-index: 2; position: relative; width: 100%; max-width: 300px; height: auto; padding: 0; margin: 0 auto; @include box-sizing(border-box); overflow: hidden;
+  & .sliderWrp {
+    position: relative;
+  }
+  @media all and (min-width: 366px) {
+    max-width: 336px;
+  }
+  @media all and (min-width: 480px) {
+    max-width: 450px;
+  }
+  @media all and (min-width: 576px) {
+    max-width: 540px;
+  }
+  @media all and (min-width: 768px) {
+    max-width: 720px;
+  }
+  @media all and (min-width: 992px) {
+    max-width: 960px;
+  }
+  @media all and (min-width: 1200px) {
+    max-width: 1140px;
+  }
+}
+
+.contNewsletter {
+  width: 100%; height: auto; @include position(relative, null null null null); padding: 40px 0; margin: 0; @include box-sizing(border-box); background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; overflow: hidden;
+  &__desc {
+    width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box);
+    & .newsTestDesc {
+      width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box); text-align: center; color: $white;
+      & p {
+        font-weight: 400; color: $white;
+      }
+    }
+    & .titleGen {
+      padding: 0 0 10px; margin: 0 0 15px;
+      &__head {
+        color: $white!important; text-transform: inherit!important; @include fluid-type(18px, 28px, 320px, 1200px);
+      }
+      &:after {
+        border-bottom: 1px solid $white!important;
+      }
+    }
+  }
+  &__form {
+    width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box);
+    form {
+      margin: 15px 0 0; padding: 0;
+      & .animatedField  {
+        & input[type="email"] {
+          height: 52px; line-height: 52px; border: 0!important;
+        }
+        & label {
+          color: $col1!important;
+        }
+      }
+    }
+    & .btnGen {
+      margin: 0; height: 52px; line-height: 52px; margin: 1px 0 0;
+    }
+  }
+  @media all and (min-width: 576px) {
+    padding: 50px 0;
+  }
+  @media all and (min-width: 768px) {
+    padding: 80px 0;
+  }
+  @media all and (min-width: 1024px) {
+    padding: 100px 0;
+  }
+}
+
+// Contacto Page 
+.contContact {
+  width: 100%; height: auto; @include position(relative, null null null null); padding: 50px 0 40px; margin: 0; @include box-sizing(border-box); background-color: $white;
+  @media all and (min-width: 768px) {
+    padding: 90px 0 50px;
+  }
+}
+
+// Full page Generic
+.contGeneric {
+  width: 100%; height: auto; @include position(relative, null null null null); padding: 50px 0 40px; margin: 0; @include box-sizing(border-box); background-color: $white;
+  & .rte {
+    width: 100%; height: auto; padding: 0; margin: 20px 0 0; position: relative; @include box-sizing(border-box); color: $col12;
+    & h1, & h2, & h3, & h4, & h5, & h6 {
+      color: $col7;
+    }
+    & ul, & ol {
+      list-style-type: none; padding: 0 0 0 24px; margin: 0 0 20px; @include box-sizing(border-box);
+      & li {
+        list-style-type: none; position: relative; margin: 0 0 3px;
+        &:before {
+          content: ''; @include position(absolute, 8px null null -15px); width: 6px; height: 6px; background-color: $col5; border-radius: 50%;
+        }
+      }
+    }
+    & a {
+      font-weight: 500;
+    }
+    & strong, & b {
+      font-weight: 700;
+    }
+    img.alignright {float:right; margin:0 0 1em 1em}
+    img.alignleft {float:left; margin:0 1em 1em 0}
+    img.aligncenter {display: block; margin-left: auto; margin-right: auto}
+    a img.alignright {float:right; margin:0 0 1em 1em}
+    a img.alignleft {float:left; margin:0 1em 1em 0}
+    a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
+  }
+  @media all and (min-width: 768px) {
+    padding: 70px 0;
+    & .rte {
+      margin: 40px 0 0;
+    }
+  }
+  @media all and (min-width: 992px) {
+    padding: 80px 0;
+    & .rte {
+      margin: 50px 0 0;
+    }
+  }
+}
+
+//Single page section
+.contSingelPage {
+  width: 100%; height: auto; @include position(relative, null null null null); padding: 25px 0; margin: 0; @include box-sizing(border-box); background-color: $col1;
+  & .rte {
+    width: 100%; height: auto; padding: 20px 0 20px; margin: 0; position: relative; @include box-sizing(border-box); color: $white;
+    & h1, & h2, & h3, & h4, & h5, & h6 {
+      color: $white;
+    }
+    & p {
+      font-weight: 300;
+      & a {
+        font-weight: 500;
+      }
+    }
+    & ul, & ol {
+      list-style-type: none; padding: 0 0 0 24px; margin: 0 0 20px; @include box-sizing(border-box);
+      & li {
+        list-style-type: none; position: relative; margin: 0 0 3px; font-weight: 300;
+        &:before {
+          content: ''; @include position(absolute, 8px null null -15px); width: 6px; height: 6px; background-color: $white; border-radius: 50%;
+        }
+      }
+    }
+    & strong, & b {
+      font-weight: 700;
+    }
+  }
+  & .btnRte {
+    width: 100%; height: auto; padding: 0; margin: 15px 0 10px; position: relative; @include box-sizing(border-box); text-align: center;
+    & a {
+      margin: 0;
+    }
+  }
+  @media all and (min-width: 768px) {
+    padding: 40px 0;
+    & .rte {
+      padding: 30px 10px 20px;
+    }
+  }
+}
+.imageSingle {
+  width: 250px; height: 250px; padding: 0; margin: 0 auto 30px; position: relative; background-color: $white; box-shadow: 2px 6px 10px rgba($black, 0.30); border-radius: 50%;
+  & > img {
+    @include position(absolute, 50% null null 50%); @include transform(translate(-50%, -50%)); display: block; width: 100%; max-width: 155px; height: auto; padding: 0; margin: 0;
+  }
+  @media all and (min-width: 576px) {
+    width: 290px; height: 290px;
+    & > img {
+      max-width: 175px;
+    }
+  }
+  @media all and (min-width: 768px) {
+    margin: 0 auto;
+  }
+  @media all and (min-width: 992px) {
+    width: 320px; height: 320px;
+    & > img {
+      max-width: 190px;
+    }
+  }
+  @media all and (min-width: 1200px) {
+    width: 360px; height: 360px;
+    & > img {
+      max-width: 220px;
+    }
+  }
+}
+.listSingle {
+  border-bottom: 1px solid rgba($col4, 0.85);
+  & .nav-item {
+    width: 50%;
+    & .nav-link {
+      @include transition(color 300ms ease);border: none!important; border-radius: 0!important; text-align: center; font-weight: 500; color: $col4; background-color: transparent; position: relative;
+      &:after {
+        @include position(absolute, null null 0 0); @include transition(height 0.45s ease-in-out 0.20s); content: ''; width: 100%; height: 0; background-color: $white;
+      }
+      &:hover,
+      &.active {
+        color: $white;
+        &:after {
+          height: 4px;
+        }
+      }
+    }
+  }
+}
+
+// Quienes Somos Page Section
+.contAboutUs {
+  width: 100%; height: auto; @include position(relative, null null null null); padding: 25px 0; margin: 0; @include box-sizing(border-box); background-color: $white; background-image: url('#{$imgR}imgprueba/equality_bg_iso.svg'); background-position: -40px calc(100% + 50px); background-repeat: no-repeat; overflow: hidden; background-size: 700px;
+  & hr {
+    margin-top: 40px; margin-bottom: 40px;
+  }
+  & .descAboutBox {
+    width: 100%; height: auto; padding: 0 0 20px; margin: 0; position: relative; @include box-sizing(border-box); color: $col12;
+    & h1, & h2, & h3, & h4, & h5, & h6 {
+      color: $col12;
+    }
+    & p {
+      font-weight: 300; color: $col12;
+      & a {
+        font-weight: 500;
+      }
+    }
+    & ul, & ol {
+      list-style-type: none; padding: 0 0 0 24px; margin: 0 0 20px; @include box-sizing(border-box);
+      & li {
+        list-style-type: none; position: relative; margin: 0 0 3px; font-weight: 600; color: $col1;
+        &:before {
+          content: ''; @include position(absolute, 8px null null -15px); width: 6px; height: 6px; background-color: $col5; border-radius: 50%;
+        }
+      }
+    }
+    & strong, & b {
+      font-weight: 700;
+    }
+  }
+  @media all and (min-width: 768px) {
+    padding: 40px 0;
+  }
+}
+.bxAboutCont {
+  width: 100%; height: auto; padding: 25px 0; margin: 0 0 20px; position: relative; background-color: $white; box-shadow: 2px 6px 10px rgba($black, 0.20); @include box-sizing(border-box);
+  & > img {
+    display: block; width: 100%; height: auto; padding: 0; margin: 0 auto; border: none; max-width: 450px;
+  }
+  @media all and (min-width: 768px) {
+    margin: 0;
+  }
+}
+.bxAboutContFull {
+  width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative; background-color: $white; box-shadow: 2px 6px 10px rgba($black, 0.20); @include box-sizing(border-box);
+  & > img {
+    display: block; width: 100%; height: auto; padding: 0; margin: 0 auto; border: none;
+  }
+  @media all and (min-width: 768px) {
+    margin: 0;
+  }
+}
+.circleAbout {
+  width: 100%; height: auto; padding: 0; margin: 30px 0 0; position: relative; @include box-sizing(border-box);
+  & > img {
+    display: block; width: 100%; height: auto; padding: 0; margin: 0 auto; border: none; max-width: 555px;
+  }
+}

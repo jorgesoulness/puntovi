@@ -1,0 +1,139 @@
+/* ==|====================
+   Layout/Header
+   ======================= */
+
+.g-header {
+  width: 100%; height: auto; @include position(fixed, 0 null null 0); padding: 10px 0; margin: 0; background-color: $white; box-shadow: 0 4px 8px rgba($black, 0.20); z-index: 100;@include transition(transform 200ms ease, all 0.25s); @include display(flex);
+  &.activeHead {
+    background-color: $white; top: 0;
+  }
+}
+
+.brand {
+  border: 0; display: inline-block; font-size: 0; height: inherit; line-height: inherit; padding: 0 14px;
+  opacity: 1; @include transition(opacity 2.5s ease 0.75s); @include animation(none);
+  & img {
+    display: block; width: 100%; max-width: 114px; height: auto; margin: 0 auto 0 0; padding: 0;
+  }
+  & .site-title {
+    font-size: 0; text-indent: -9999px; color: $col1; opacity: 0; margin: 0; padding: 0;
+  }
+  @media all and (min-width: 768px) {
+    padding: 0 26px;
+    & img {
+      max-width: 125px;
+    }
+  }
+  body.is-preload & {
+    opacity: 0;
+  }
+}
+
+.btnNav {
+  @include display(flex); @include justify-content(flex-end); @include flex-grow(1); align-items: center; height: inherit; line-height: inherit;
+  opacity: 1; @include transition(opacity 2.5s ease 0.75s); @include animation(none);
+	a {
+		border: 0; display: block; font-size: rem(18px); height: inherit; line-height: 32px; padding: 0 10px; position: relative; vertical-align: middle; font-family: $hmedium; text-transform: uppercase; color: $col4;
+		&:last-child {
+			padding-right: 1.5em;
+		}
+    &[href="#menu"] {
+      // padding-right: 3.325em !important;
+      overflow: hidden; padding-right: 0 !important; text-indent: -9999px; white-space: nowrap; width: 55px;
+      &:before, &:after {
+        background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 32"><defs><style>.cls-1{fill:#{$col4};}</style></defs><rect class="cls-1" x="0.05" y="9.9" width="24" height="2"/><rect class="cls-1" x="6.05" y="15" width="18" height="2"/><rect class="cls-1" x="12.05" y="20.1" width="12" height="2"/></svg>');
+				background-position: center; background-repeat: no-repeat; background-size: 24px 32px; content: ''; display: block; height: 100%; position: absolute; top: 0; vertical-align: middle;
+        // right: 1.5em; width: 24px;
+        right: 0; width: inherit;
+      }
+      &:after {
+        @include transition(opacity 200ms ease-in-out);
+        background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 32"><defs><style>.cls-1{fill:#{$col1};}</style></defs><rect class="cls-1" x="0.05" y="9.9" width="24" height="2"/><rect class="cls-1" x="6.05" y="15" width="18" height="2"/><rect class="cls-1" x="12.05" y="20.1" width="12" height="2"/></svg>'); opacity: 0; z-index: 1;
+      }
+      &:hover, &:active {
+        color: $col1;
+        &:after {
+          opacity: 1;
+        }
+      }
+      &:last-child {
+        padding-right: 0 !important;
+        &:before, &:after {
+          // right: 2em;
+          width: 40px; right: 0;
+        }
+      }
+    }
+  }
+  @media all and (min-width: 768px) {
+    a {
+			padding: 0 25px;
+      &:last-child {
+        padding-right: 1em;
+      }
+      &[href="#menu"] {
+        padding-right: 3.25em !important; overflow: inherit; text-indent: inherit; white-space: inherit; width: inherit;
+        &:before, &:after {
+          right: 0.75em; width: 24px;
+        }
+        &:last-child {
+          padding-right: 60px !important;
+
+          &:before, &:after {
+            right: 20px; width: 2em;
+          }
+        }
+      }
+		}
+  }
+  @media all and (min-width: 1024px) {
+    a {
+			&[href="#menu"] {
+				padding-right: 3.75em !important;
+				&:last-child {
+					padding-right: 64px !important;
+				}
+			}
+		}
+  }
+  @media all and (min-width: 1200px) {
+    a {
+			&[href="#menu"] {
+        padding-right: 4em !important;
+			}
+		}
+  }
+  body.is-preload & {
+    opacity: 0;
+  }
+}
+
+// Lang Equality
+.langContent {
+  width: auto; height: 32px; display: none; padding: 0 20px; margin: 0; background-color: $c12; border-radius: 16px;
+  & .listLang {
+    @include displayFlex(flex, row, center, center, wrap); list-style-type: none; padding: 0; margin: 0;
+    &__item {
+      list-style-type: none; padding: 0; margin: 0 5px 0 0;
+      & > a {
+        margin: 0; padding: 0 5px!important; font-size: rem(12px); font-family: $hmedium; color: $col7;
+      }
+      &:last-child {
+        margin: 0;
+      }
+      &--activo {
+        & > a {
+          color: $col1;
+        }
+      }
+      &:hover {
+        & > a {
+          color: $col1;
+        }
+      }
+    }
+  }
+  @media all and (min-width: 556px) {
+    @include display(flex); @include flex-direction(column); @include align-items(center); @include flex-wrap(wrap);
+  }
+}
