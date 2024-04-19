@@ -1,4 +1,4 @@
-# Equality Company
+# Punto Visual
 
-Repositorio de sitio web de Equality Company.
-Desarrollado por ONE-ke
+Repositorio de sitio web de Punto Visual.
+Desarrollado por Jorge Malagón
