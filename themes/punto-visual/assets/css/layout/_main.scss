@@ -1,0 +1,13 @@
+/* ==|====================
+   Layout/Main
+   ======================= */
+
+main {
+  width: 100%; height: auto; position: relative; padding: 0; margin: 0; z-index: 3;
+  &.PageContainer {
+    min-height: 100vh; @include display(flex); @include flex-direction(column); @include flex-wrap(wrap);
+  }
+}
+article {
+  width: 100%; height: auto; padding: 0; margin: 0; position: relative;
+}

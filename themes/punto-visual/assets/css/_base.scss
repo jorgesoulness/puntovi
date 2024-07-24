@@ -1,0 +1,130 @@
+/* ===========================
+   Base
+   =========================== */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: $white;
+  font-family: $roboto;
+  color: $col12;
+  @include fluid-type(13px, 16px, 320px, 1200px);
+  font-weight: 400;
+  &.bloquear {
+    overflow: hidden;
+  }
+}
+
+*:focus {outline:none !important}
+
+a {
+  color: $col1; font-weight: 400;
+  &:hover {
+    @include transition(all 0.25s); text-decoration: none; color: $col2;
+  }
+}
+
+p {
+  font-weight: 400;
+  strong, b {
+    font-weight: 500;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+h1 { @include fluid-type(18px, 40px, 320px, 1200px); }
+h2 { @include fluid-type(17px, 34px, 320px, 1200px); }
+h3 { @include fluid-type(16px, 32px, 320px, 1200px); }
+h4 { @include fluid-type(15px, 28px, 320px, 1200px); }
+h5 { @include fluid-type(14px, 24px, 320px, 1200px); }
+h6 { @include fluid-type(13px, 20px, 320px, 1200px); }
+
+.listGen {
+  list-style-type: none; padding: 0 0 0 24px; margin: 0 0 20px; @include box-sizing(border-box);
+  & li {
+    list-style-type: none; position: relative; margin: 0 0 5px;
+    &:before {
+      content: ''; @include position(absolute, 10px null null -15px); width: 6px; height: 6px; background-color: $col5; border-radius: 50%;
+    }
+  }
+}
+
+.wow {
+  visibility: hidden; @include transform-origin(0 50%);
+}
+
+.overlayGenerico {
+  @extend .overlayClass; background-color: rgba($col3,0.75); z-index: 100; @include displayFlex(flex, column, center, center, wrap); opacity: 0; visibility: hidden; overflow-x: hidden;
+}
+.btnCloseModal {
+  width: 40px; height: 40px; display: block; text-align: center; line-height: 40px; margin: 0; padding: 0; color: $col1; background-color: $black; @include position(absolute, -15px -15px null null); z-index: 4150; font-size: rem(25); border: none; cursor: pointer; border-radius: 50%; box-shadow: 0 0 1px rgba(0,0,0,0.25);
+}
+.modalAviso {
+  width: 100%; max-width: 300px; height: auto; background-color: $col3; border: 1px solid $col1; @include box-sizing(border-box); padding: 0; margin: 0; position: relative; border-radius: 10px;
+  .contentInfo {
+    width: 100%; height: auto; overflow-y: auto; overflow-x: hidden; padding: 20px 30px; margin: 0; text-align: center;
+    h2 { color: $col1; }
+    p {
+      color: $white; font-size: rem(14px);
+    }
+  }
+  @media all and (min-width: 480px) {
+    max-width: 400px;
+  }
+  @media all and (min-width: 768px) {
+    max-width: 600px;
+  }
+}
+.overProgress {
+  @extend .overlayClass; background-color: rgba($white, 1.0); z-index: 200;
+}
+.cont-mod-form {
+  width: auto; height: auto; background-color: $col1; border: 2px solid $col3; @include box-sizing(border-box); padding: 0; margin: 0; @include position(absolute, 50% nunll null 50%); @include transform(translate(-50%, -50%)); border-radius: 10px; box-shadow: 0 0 6px rgba(0,0,0,0.25); opacity: 0; visibility: hidden; z-index: -1;
+  .contentInfo {
+    width: 100%; max-width: 400px; height: 300px; overflow-y: auto; overflow-x: hidden; padding: 20px 30px; margin: 0; @include displayFlex(flex, column, center, center, warp);
+    h2, h3, h4 { color: $white; text-align: center; }
+    p {
+      color: $white; font-size: rem(14px); text-align: center;
+      a {
+        color: $white;
+      }
+    }
+  }
+  &.showMo {
+    @include transition(visibility 0s, opacity 300ms ease); visibility: visible; opacity: 1; z-index: 1;
+  }
+  &.hideMo {
+    opacity: 0; visibility: hidden; z-index: -1; @include transition(visibility 0s, opacity 300ms ease);
+  }
+}
+
+.head-block {
+  width: 100%; padding: 0; margin: 0 0 0 0; position: relative;
+  @media all and (min-width: 576px) {
+    margin: 0;
+  }
+}
+
+.fadeX {
+  @include transition(all 300ms linear 700ms); @include transform(translate3d(0,0,0)); opacity: 1;
+}
+.fadeX.out {
+  opacity: 0; z-index: -1; @include transition(all 300ms ease-in-out);
+}
+
+@include keyframes(button) {
+  0% {
+    opacity: 0;
+    @include transform(translate(-50px, 0px) skewX(-50deg)); width: 10%;
+  }
+  50% {
+    opacity: 1;
+    @include transform(translate(0, 0px) skewX(-50deg)); width: 100%;
+  }
+  100% {
+    opacity: 0;
+    @include transform(translate(300%, 0px) skewX(-50deg)); width: 50%;
+  }
+}

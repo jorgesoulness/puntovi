@@ -1,0 +1,133 @@
+1721781997a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:3227:"description = "Layout para tema principal"
+==
+<!DOCTYPE html>
+<html lang="es-MX">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Punto Visual | {{ this.page.title }}</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="PuntoVisual">
+      <meta name="robots" content="index, follow">
+	    <link rel="alternate" hreflang="es-mx" href="">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+      <link rel="apple-touch-icon" href="{{ 'favicon.png'|theme }}">
+		  <link rel="icon" type="image/png" href="{{ 'favicon.png'|theme }}">
+		  <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.png'|theme }}">
+
+      <!-- S T Y L E S - G E N E R A L -->
+      <link rel="stylesheet" type="text/css" href="{{ [
+        'assets/vendor/bootstrap/css/bootstrap.min.css',
+        'assets/css/nprogress.css',
+        'assets/css/vendor/aos.css',
+        'assets/css/style.min.css',
+      ]|theme }}">
+      {% styles %}
+      <script type="text/javascript" src="{{ 'assets/vendor/jquery/dist/jquery.min.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/vendor/modernizr-2.8.3.min.js'|theme }}"></script>
+      <script>let siteURL = "{{''|page}}";</script>
+
+    </head>
+    <body class="{{ this.page.id }}" style="display: none;">
+      <div class="overProgress fadeX"></div>
+
+      {% partial 'site/header' %}
+
+      <main>
+        <div id="primary" class="content-area">
+          {% page %}
+        </div>
+      </main><!-- end.Main -->
+
+      {% partial 'site/footer' %}
+        
+      <script type="text/javascript" src="{{ 'assets/js/plugins/nprogress.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/vendor/jquery.easing.1.3.js'|theme }}"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+      <script type="text/javascript" src="{{ 'assets/vendor/greensock/dist/TweenMax.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/plugins/jquery.validate.min.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/plugins/additional-methods.min.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/plugins/aos.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/plugins/slick.min.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/scripts/layoutScripts.js?ver=1.0.1'|theme }}"></script>
+      {% framework extras %}
+      {% scripts %}
+
+      <script>
+        $('body').show();
+        NProgress.start();
+        setTimeout(function() {
+          NProgress.done(); $('.fadeX').addClass('out');
+        }, 1000);
+      </script>
+    </body>
+</html>";s:5:"mtime";i:1721772758;s:6:"markup";s:3179:"<!DOCTYPE html>
+<html lang="es-MX">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Punto Visual | {{ this.page.title }}</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="PuntoVisual">
+      <meta name="robots" content="index, follow">
+	    <link rel="alternate" hreflang="es-mx" href="">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+      <link rel="apple-touch-icon" href="{{ 'favicon.png'|theme }}">
+		  <link rel="icon" type="image/png" href="{{ 'favicon.png'|theme }}">
+		  <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.png'|theme }}">
+
+      <!-- S T Y L E S - G E N E R A L -->
+      <link rel="stylesheet" type="text/css" href="{{ [
+        'assets/vendor/bootstrap/css/bootstrap.min.css',
+        'assets/css/nprogress.css',
+        'assets/css/vendor/aos.css',
+        'assets/css/style.min.css',
+      ]|theme }}">
+      {% styles %}
+      <script type="text/javascript" src="{{ 'assets/vendor/jquery/dist/jquery.min.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/vendor/modernizr-2.8.3.min.js'|theme }}"></script>
+      <script>let siteURL = "{{''|page}}";</script>
+
+    </head>
+    <body class="{{ this.page.id }}" style="display: none;">
+      <div class="overProgress fadeX"></div>
+
+      {% partial 'site/header' %}
+
+      <main>
+        <div id="primary" class="content-area">
+          {% page %}
+        </div>
+      </main><!-- end.Main -->
+
+      {% partial 'site/footer' %}
+        
+      <script type="text/javascript" src="{{ 'assets/js/plugins/nprogress.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/vendor/jquery.easing.1.3.js'|theme }}"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+      <script type="text/javascript" src="{{ 'assets/vendor/greensock/dist/TweenMax.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/plugins/jquery.validate.min.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/plugins/additional-methods.min.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/plugins/aos.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/plugins/slick.min.js'|theme }}"></script>
+      <script type="text/javascript" src="{{ 'assets/js/scripts/layoutScripts.js?ver=1.0.1'|theme }}"></script>
+      {% framework extras %}
+      {% scripts %}
+
+      <script>
+        $('body').show();
+        NProgress.start();
+        setTimeout(function() {
+          NProgress.done(); $('.fadeX').addClass('out');
+        }, 1000);
+      </script>
+    </body>
+</html>";s:4:"code";N;s:11:"description";s:26:"Layout para tema principal";}}

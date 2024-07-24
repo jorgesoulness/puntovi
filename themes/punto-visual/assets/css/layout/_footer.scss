@@ -1,0 +1,7 @@
+/* ==|====================
+   Layout/Footer
+   ======================= */
+
+.g-footer {
+  width: 100%; height: auto; @include position(fixed, null null 0 0); padding: 45px 0 40px 0; margin: 0; z-index: 4; background-color: $col1; border-top: 1px solid $col2; z-index: 1;
+}
